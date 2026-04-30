@@ -1,3 +1,14 @@
+"""
+Test: Fix Node
+
+Purpose:
+Verifies that secure fixes are generated for detected vulnerabilities.
+
+Expected Behavior:
+- Vulnerable code is transformed into a safer version
+- Fix explanation is provided
+- Output includes structured fix details
+"""
 import sys
 from pathlib import Path
 import json

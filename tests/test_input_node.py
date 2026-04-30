@@ -1,3 +1,14 @@
+"""
+Test: Input Node
+
+Purpose:
+Verifies that the input node correctly initializes the pipeline state
+with raw code and optional context.
+
+Expected Behavior:
+- Input code is preserved
+- Context is correctly attached to state
+"""
 import sys
 from pathlib import Path
 

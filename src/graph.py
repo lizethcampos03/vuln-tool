@@ -1,3 +1,12 @@
+"""
+LangGraph Workflow Definition
+
+Purpose:
+Defines the node sequence and edges for the security auditing pipeline.
+
+Pipeline:
+Input → Preprocess → RAG → Detection → Validation → Fix → Output
+"""
 from langgraph.graph import StateGraph
 from typing import TypedDict, Dict, Any
 

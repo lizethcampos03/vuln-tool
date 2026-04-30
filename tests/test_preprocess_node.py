@@ -1,3 +1,13 @@
+"""
+Test: Preprocess Node
+
+Purpose:
+Ensures that raw input code is properly cleaned and standardized.
+
+Expected Behavior:
+- Leading/trailing whitespace is removed
+- Cleaned code is stored in state
+"""
 import sys
 from pathlib import Path
 

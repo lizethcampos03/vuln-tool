@@ -1,3 +1,31 @@
+"""
+Output Node — Final Security Report Generation
+
+Purpose:
+This node compiles all results into a structured, human-readable
+and experiment-ready security audit report.
+
+Inputs:
+- detection results
+- validation results
+- fix results
+- retrieved sources
+
+Outputs:
+- final_report:
+    {
+        executive_summary,
+        security_findings,
+        fix_recommendation,
+        validation_evidence,
+        audit_trail,
+        comparison_ready
+    }
+
+Role in Pipeline:
+Presents the full analysis in a clear, trustworthy format suitable
+for security experts, developers, and experimental evaluation.
+"""
 def output_node(state):
     new_state = dict(state)
 

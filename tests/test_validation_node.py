@@ -1,3 +1,14 @@
+"""
+Test: Validation Node
+
+Purpose:
+Ensures detection results are validated using multi-run majority voting.
+
+Expected Behavior:
+- Multiple runs are executed
+- Votes are aggregated correctly
+- Final decision reflects majority outcome
+"""
 import sys
 from pathlib import Path
 import json

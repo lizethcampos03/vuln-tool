@@ -1,3 +1,27 @@
+"""
+Fix Node — Secure Code Generation
+
+Purpose:
+This node generates a secure version of the vulnerable code using
+LLM guidance based on validated findings.
+
+Inputs:
+- cleaned_code
+- validated findings
+
+Outputs:
+- fix_result:
+    {
+        fixed_code,
+        fix_summary,
+        explanation,
+        remaining_risks
+    }
+
+Role in Pipeline:
+Transforms detection into action by providing practical, secure
+code fixes grounded in identified vulnerabilities.
+"""
 from openai import OpenAI
 import os
 import json

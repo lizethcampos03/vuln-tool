@@ -1,3 +1,14 @@
+"""
+Test: RAG Node
+
+Purpose:
+Validates that relevant security knowledge is retrieved based on input code.
+
+Expected Behavior:
+- Relevant CWE entries are returned
+- Retrieved context is formatted correctly
+- Source metadata is included
+"""
 import sys
 from pathlib import Path
 import json

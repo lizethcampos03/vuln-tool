@@ -1,3 +1,15 @@
+"""
+Test: Detection Node
+
+Purpose:
+Verifies that the detection node can analyze vulnerable and safe code
+and return structured results.
+
+Expected Behavior:
+- Vulnerable sample should be classified as vulnerable
+- Safe sample should not be falsely flagged
+- Output follows structured schema
+"""
 import sys
 from pathlib import Path
 import json

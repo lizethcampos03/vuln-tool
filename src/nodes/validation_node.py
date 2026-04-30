@@ -1,3 +1,26 @@
+"""
+Validation Node — Multi-Run Verification
+
+Purpose:
+This node validates detection results by running the detection
+process multiple times and applying majority voting.
+
+Inputs:
+- detection_result
+
+Outputs:
+- validation_result:
+    {
+        final_decision,
+        votes,
+        consistency_score,
+        average_confidence
+    }
+
+Role in Pipeline:
+Increases reliability and trust by reducing randomness and ensuring
+consistent vulnerability detection across multiple runs.
+"""
 from src.nodes.detection_node import detection_node
 
 

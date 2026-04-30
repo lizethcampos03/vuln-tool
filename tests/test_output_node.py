@@ -1,3 +1,14 @@
+"""
+Test: Output Node
+
+Purpose:
+Ensures that the final security report is correctly structured and complete.
+
+Expected Behavior:
+- Executive summary is present
+- Findings, fixes, and validation are included
+- Audit trail and comparison fields are generated
+"""
 import sys
 from pathlib import Path
 import json

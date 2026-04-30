@@ -1,3 +1,27 @@
+"""
+Detection Node — Vulnerability Analysis (LLM-Based)
+
+Purpose:
+This node analyzes input code to detect potential security vulnerabilities
+using an LLM, guided by retrieved security knowledge (RAG).
+
+Inputs:
+- cleaned_code: Preprocessed source code
+- retrieved_context: Relevant CWE/CVE knowledge
+
+Outputs:
+- detection_result:
+    {
+        overall_security_status,
+        findings[],
+        summary,
+        false_positive_considerations
+    }
+
+Role in Pipeline:
+This is the core intelligence layer where semantic understanding
+is applied to identify vulnerabilities beyond simple pattern matching.
+"""
 from dotenv import load_dotenv
 load_dotenv()
 

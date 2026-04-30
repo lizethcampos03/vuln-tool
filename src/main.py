@@ -1,24 +1,49 @@
-from nodes.input_node import input_node
-from nodes.preprocess_node import preprocess_node
-from nodes.rag_node import rag_node
-from nodes.detection_node import detection_node
-from nodes.validation_node import validation_node
-from nodes.fix_node import fix_node
-from nodes.output_node import output_node
+"""
+Main Entry Point
 
-# Test input
-test_state = {
-    "code": "   print('hello world')   ",
-    "context": "simple test"
+Purpose:
+Runs the full LangGraph security auditing pipeline from input
+to final report.
+
+Usage:
+python src/main.py
+"""
+from langsmith import traceable
+from src.nodes.input_node import input_node
+from src.nodes.preprocess_node import preprocess_node
+from src.nodes.rag_node import rag_node
+from src.nodes.detection_node import detection_node
+from src.nodes.validation_node import validation_node
+from src.nodes.fix_node import fix_node
+from src.nodes.output_node import output_node
+
+@traceable(name="vuln_tool_pipeline")
+def run_pipeline():
+    state = {
+    "file_name": "fintech_login.py",
+    "code": """
+import sqlite3
+
+def login(username, password):
+    conn = sqlite3.connect("users.db")
+    query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
+    result = conn.execute(query).fetchone()
+    return result
+""",
+    "context": "This is a login function for a FinTech web application that handles user authentication and sensitive account access."
 }
 
-# Run nodes
-state = input_node(test_state)
-state.update(preprocess_node(state))
-state.update(rag_node(state))
-state.update(detection_node(state))
-state.update(validation_node(state))
-state.update(fix_node(state))
-state.update(output_node(state))
+    state = input_node(state)
+    state = preprocess_node(state)
+    state = rag_node(state)
+    state = detection_node(state)
+    state = validation_node(state)
+    state = fix_node(state)
+    state = output_node(state)
 
-print(state["final_report"])
+    return state
+
+
+if __name__ == "__main__":
+    result = run_pipeline()
+    print(result)
