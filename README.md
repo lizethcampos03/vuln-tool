@@ -45,24 +45,6 @@ Each stage is implemented as a node with a specific responsibility.
 
 ---
 
-### Pipeline Overview
-
-[ Input ]
-↓
-[ Preprocess ]
-↓
-[ RAG (CWE/CVE Knowledge) ]
-↓
-[ Detection (LLM) ]
-↓
-[ Validation (Multi-run Voting) ]
-↓
-[ Fix Generation (LLM) ]
-↓
-[ Output Report ]
-
----
-
 ## Pipeline Breakdown
 
 | Stage        | Purpose                                       |
@@ -74,28 +56,6 @@ Each stage is implemented as a node with a specific responsibility.
 | Validation   | Multi-run majority voting for consistency     |
 | Fix          | LLM generates secure version of the code      |
 | Output       | Builds final structured security report       |
-
----
-
-## Project Structure
-
-
-vuln-tool/
-├── src/
-│ ├── nodes/ # Core pipeline logic
-│ ├── rag/ # Security knowledge retrieval
-│ ├── graph.py # LangGraph workflow
-│ └── main.py # Entry point
-│
-├── tests/ # Node-level testing
-├── experiments/ # Evaluation (Phase 2)
-├── docs/ # Architecture and methodology
-│
-├── README.md
-├── requirements.txt
-├── langgraph.json
-└── .gitignore
-
 
 ---
 
