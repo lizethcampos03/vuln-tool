@@ -1,0 +1,18 @@
+[
+  {
+    "source_type": "CVE",
+    "source_id": "CVE-SAMPLE-001",
+    "related_cwe": "CWE-89",
+    "title": "Example SQL Injection CVE Pattern",
+    "summary": "A product vulnerability involving unsanitized input used in SQL queries.",
+    "use_case": "Supports retrieval when analyzing SQL injection examples."
+  },
+  {
+    "source_type": "CVE",
+    "source_id": "CVE-SAMPLE-002",
+    "related_cwe": "CWE-489",
+    "title": "Example Debug Mode Exposure Pattern",
+    "summary": "A product vulnerability involving debug behavior exposed in production.",
+    "use_case": "Supports retrieval when analyzing security misconfiguration examples."
+  }
+]

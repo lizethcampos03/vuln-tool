@@ -1,0 +1,58 @@
+[
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-89",
+    "owasp_category": "Injection",
+    "title": "SQL Injection",
+    "summary": "SQL Injection occurs when untrusted input is included directly in SQL queries without proper parameterization.",
+    "safe_fix": "Use parameterized queries or prepared statements."
+  },
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-798",
+    "owasp_category": "Identification and Authentication Failures",
+    "title": "Use of Hard-coded Credentials",
+    "summary": "Hard-coded credentials expose secrets directly in source code and can allow unauthorized access.",
+    "safe_fix": "Store secrets in environment variables or a secure secrets manager."
+  },
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-327",
+    "owasp_category": "Cryptographic Failures",
+    "title": "Use of a Broken or Risky Cryptographic Algorithm",
+    "summary": "Weak cryptographic algorithms can expose sensitive data or make passwords easier to crack.",
+    "safe_fix": "Use modern approved cryptographic libraries and password hashing algorithms."
+  },
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-306",
+    "owasp_category": "Broken Access Control",
+    "title": "Missing Authentication for Critical Function",
+    "summary": "Critical functionality without authentication can allow unauthorized users to access protected actions.",
+    "safe_fix": "Require authentication before sensitive operations."
+  },
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-284",
+    "owasp_category": "Broken Access Control",
+    "title": "Improper Access Control",
+    "summary": "Improper access control allows users to perform actions or access resources without proper authorization.",
+    "safe_fix": "Enforce authorization checks based on user identity, role, and permissions."
+  },
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-489",
+    "owasp_category": "Security Misconfiguration",
+    "title": "Active Debug Code",
+    "summary": "Debug code left enabled in production can expose sensitive information and internal application behavior.",
+    "safe_fix": "Disable debug mode and remove development-only behavior in production."
+  },
+  {
+    "source_type": "CWE",
+    "source_id": "CWE-200",
+    "owasp_category": "Security Misconfiguration",
+    "title": "Exposure of Sensitive Information",
+    "summary": "Sensitive information may be exposed through errors, debug output, or unsafe configuration.",
+    "safe_fix": "Disable verbose errors and avoid exposing sensitive internal details."
+  }
+]

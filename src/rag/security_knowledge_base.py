@@ -53,6 +53,24 @@ OWASP_CWE_KNOWLEDGE = [
         "summary": "Sensitive information exposure can happen when debug mode or verbose errors reveal internal details.",
         "safe_fix": "Disable debug mode in production and avoid exposing sensitive data."
     }
+    {
+    "source_type": "CWE",
+    "source_id": "CWE-284",
+    "owasp_category": "Broken Access Control",
+    "title": "Improper Access Control",
+    "keywords": ["access", "authorization", "permission", "role", "admin", "privilege", "allow_access"],
+    "summary": "Improper access control happens when users can access functionality or resources without proper authorization checks.",
+    "safe_fix": "Enforce authentication and authorization checks before allowing access to sensitive operations."
+},
+{
+    "source_type": "CWE",
+    "source_id": "CWE-489",
+    "owasp_category": "Security Misconfiguration",
+    "title": "Active Debug Code",
+    "keywords": ["debug", "debug=true", "development", "production", "traceback", "app.run"],
+    "summary": "Active debug code in production can expose sensitive information, stack traces, or internal application behavior.",
+    "safe_fix": "Disable debug mode in production and remove development-only behavior from deployed systems."
+},
 ]
 
 

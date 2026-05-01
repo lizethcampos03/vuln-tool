@@ -1,0 +1,124 @@
+[
+  {
+    "id": "CASE-001",
+    "type": "vulnerable",
+    "category": "Injection",
+    "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"'\"",
+    "context": "Login function handling authentication",
+    "file_name": "login_vulnerable.py",
+    "expected": {
+      "vulnerable": true,
+      "cwe": "CWE-89",
+      "reason": "SQL injection due to string concatenation"
+    }
+  },
+  {
+    "id": "CASE-002",
+    "type": "safe",
+    "category": "Injection",
+    "code": "query = \"SELECT * FROM users WHERE username = ?\"",
+    "context": "Login function using parameterized query",
+    "file_name": "login_safe.py",
+    "expected": {
+      "vulnerable": false
+    }
+  },
+  {
+    "id": "CASE-003",
+    "type": "vulnerable",
+    "category": "Authentication",
+    "code": "password = \"admin123\"",
+    "context": "Hardcoded admin credentials",
+    "file_name": "auth_vulnerable.py",
+    "expected": {
+      "vulnerable": true,
+      "cwe": "CWE-798",
+      "reason": "Hardcoded credentials"
+    }
+  },
+  {
+    "id": "CASE-004",
+    "type": "safe",
+    "category": "Authentication",
+    "code": "password = os.getenv(\"DB_PASSWORD\")",
+    "context": "Credentials stored securely",
+    "file_name": "auth_safe.py",
+    "expected": {
+      "vulnerable": false
+    }
+  },
+  {
+    "id": "CASE-005",
+    "type": "vulnerable",
+    "category": "Cryptography",
+    "code": "hash = hashlib.md5(password.encode()).hexdigest()",
+    "context": "Password hashing using weak algorithm",
+    "file_name": "crypto_vulnerable.py",
+    "expected": {
+      "vulnerable": true,
+      "cwe": "CWE-327",
+      "reason": "Weak cryptographic algorithm (MD5)"
+    }
+  },
+  {
+    "id": "CASE-006",
+    "type": "safe",
+    "category": "Cryptography",
+    "code": "hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())",
+    "context": "Password hashing using bcrypt",
+    "file_name": "crypto_safe.py",
+    "expected": {
+      "vulnerable": false
+    }
+  }
+
+,
+{
+  "id": "CASE-007",
+  "type": "vulnerable",
+  "category": "Access Control",
+  "code": "if user.role == 'admin': allow_access()",
+  "context": "Access control check without proper authentication validation",
+  "file_name": "access_control_vulnerable.py",
+  "expected": {
+    "vulnerable": true,
+    "cwe": "CWE-284",
+    "reason": "Improper access control logic"
+  }
+},
+{
+  "id": "CASE-008",
+  "type": "safe",
+  "category": "Access Control",
+  "code": "if user.is_authenticated and user.role == 'admin': allow_access()",
+  "context": "Proper authentication and role-based access control",
+  "file_name": "access_control_safe.py",
+  "expected": {
+    "vulnerable": false
+  }
+},
+{
+  "id": "CASE-009",
+  "type": "vulnerable",
+  "category": "Security Misconfiguration",
+  "code": "app.run(debug=True)",
+  "context": "Production web application running in debug mode",
+  "file_name": "config_vulnerable.py",
+  "expected": {
+    "vulnerable": true,
+    "cwe": "CWE-489",
+    "reason": "Debug mode enabled in production"
+  }
+},
+{
+  "id": "CASE-010",
+  "type": "safe",
+  "category": "Security Misconfiguration",
+  "code": "app.run(debug=False)",
+  "context": "Production-safe configuration",
+  "file_name": "config_safe.py",
+  "expected": {
+    "vulnerable": false
+  }
+}
+]
